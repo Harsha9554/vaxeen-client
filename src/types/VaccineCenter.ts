@@ -7,7 +7,7 @@ export class VaccineCenter {
 	state!: string;
 	district!: string;
 	pincode!: number;
-	sessions?: Session[];
+	sessions!: Session[];
 
 	constructor(centersResponse: any) {
 		this.centerId = centersResponse.center_id;
@@ -16,9 +16,9 @@ export class VaccineCenter {
 		this.state = centersResponse.state_name;
 		this.district = centersResponse.district_name;
 		this.pincode = centersResponse.pincode;
-		// this.sessions = centersResponse["sessions"].map(
-		// 	(session: any) => new Session(session)
-		// );
-		this.sessions = undefined;
+		this.sessions = centersResponse["sessions"].map(
+			(session: any) => new Session(session)
+		);
+		// this.sessions = undefined;
 	}
 }

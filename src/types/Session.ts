@@ -1,6 +1,6 @@
 export class Session {
 	sessionId!: string;
-	date!: Date;
+	date!: string;
 	minAge!: number;
 	vaccine!: string;
 	slots!: string[];
@@ -9,7 +9,7 @@ export class Session {
 
 	constructor(sessionResponse: any) {
 		this.sessionId = sessionResponse.session_id;
-		this.date = new Date(sessionResponse.date);
+		this.date = sessionResponse.date;
 		this.minAge = sessionResponse.min_age_limit;
 		this.vaccine = sessionResponse.vaccine;
 		this.slots = sessionResponse["slots"].map((x: any) => x);
