@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
 import "../styles/Centers.css";
@@ -13,7 +12,7 @@ interface LocationState {
 }
 
 export interface CentersProps
-	extends RouteComponentProps<{}, StaticContext, LocationState> {}
+	extends RouteComponentProps<{}, StaticContext, LocationState> { }
 
 const Centers: React.FC<CentersProps> = ({ location }) => {
 	const { pincode, today } = location.state;
@@ -47,30 +46,6 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 	};
 
 	return (
-		// <div>
-		// 	<h1>Centers</h1>
-		// 	<hr />
-		// 	<div>
-		// 		{vaccineCenters &&
-		// 			vaccineCenters.length > 0 &&
-		// 			vaccineCenters.map((center) => {
-		// 				return (
-		// 					<div key={center.centerId} className="row centers col-md-4">
-		// 						<ul>{center.name}</ul>
-		// 						<ul>{center.address}</ul>
-		// 						<ul>{center.district}</ul>
-		// 						<button
-		// 							onClick={() => onClick(center.centerId)}
-		// 							className="btn btn-primary"
-		// 						>
-		// 							Check
-		// 						</button>
-		// 						<hr />
-		// 					</div>
-		// 				);
-		// 			})}
-		// 	</div>
-		// </div>
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
 				<h2 className="navbar-brand">
@@ -88,8 +63,8 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 					<span className="navbar-toggler-icon"></span>
 				</button>
 			</nav>
-			<div className="container">
-				<div className="my-3 p-3 bg-secondary rounded box-shadow">
+			<div className="container w-100">
+				<div className="my-3 p-3 bg-secondary rounded box-shadow w-100">
 					<h6 className="border-bottom text-white border-white pb-2">
 						Recent Updates
 					</h6>
@@ -135,7 +110,7 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 												)}
 												<button
 													onClick={() => onClick(center.centerId)}
-													className="btn btn-success btn-block"
+													className="btn btn-success btn-block w-100"
 												>
 													Check Sessions
 												</button>

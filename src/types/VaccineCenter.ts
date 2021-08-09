@@ -5,6 +5,7 @@ export class VaccineCenter {
 	centerId!: number;
 	name!: string;
 	address!: string;
+	block!:string;
 	state!: string;
 	district!: string;
 	pincode!: number;
@@ -16,6 +17,7 @@ export class VaccineCenter {
 		this.centerId = centersResponse.center_id;
 		this.name = centersResponse.name;
 		this.address = centersResponse.address;
+		this.block = centersResponse.block_name;
 		this.state = centersResponse.state_name;
 		this.district = centersResponse.district_name;
 		this.pincode = centersResponse.pincode;

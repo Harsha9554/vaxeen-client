@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import dateFormat from "dateformat";
 import "../styles/Entry.css";
 import { useHistory } from "react-router-dom";
 
-interface EntryProps {}
+interface EntryProps { }
 
 const Entry: React.FC<EntryProps> = (props) => {
 	const [pincode, setPincode] = useState("");
@@ -49,7 +48,7 @@ const Entry: React.FC<EntryProps> = (props) => {
 								className="form-control"
 								placeholder="Enter Pincode"
 							/>
-							<button onClick={onClick} className="btn btn-secondary">
+							<button onClick={onClick} className="btn btn-success">
 								Submit
 							</button>
 						</div>
@@ -57,21 +56,6 @@ const Entry: React.FC<EntryProps> = (props) => {
 				</div>
 			</div>
 		</div>
-		// <div className="container">
-		// 	<div className="col-md-2">
-		// 		<label htmlFor="pincode">PinCode</label>
-		// 		<input
-		// 			name="pincode"
-		// 			value={pincode}
-		// 			type="text"
-		// 			onChange={(e) => setPincode(e.target.value)}
-		// 			className="input"
-		// 		/>
-		// 		<button onClick={onClick} className="btn btn-primary btn-block">
-		// 			Submit
-		// 		</button>
-		// 	</div>
-		// </div>
 	);
 };
 
