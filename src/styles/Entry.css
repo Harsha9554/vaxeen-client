@@ -1,10 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;800&display=swap");
+
+* {
+	font-family: "Poppins";
+}
+
+a {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	line-height: 0;
+}
+
 .container {
-	padding: 100px 0px;
+	margin-top: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.navbar-brand {
-	padding: 5px 20px;
+nav {
+	padding: 0px 50px;
+	background-color: #8bac84;
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+}
+
+.logo {
+	text-decoration: none;
+	color: #2d2d31;
+	font-size: 32px;
+	font-weight: bold;
+	font-family: "Bebas Neue";
+}
+.logo:hover {
+	color: whitesmoke;
+}
+body {
+	background-color: #2d2d31;
+	background: radial-gradient(
+			circle,
+			transparent 20%,
+			#2d2d31 20%,
+			#2d2d31 80%,
+			transparent 80%,
+			transparent
+		),
+		radial-gradient(
+				circle,
+				transparent 20%,
+				#2d2d31 20%,
+				#2d2d31 80%,
+				transparent 80%,
+				transparent
+			)
+			35px 35px,
+		linear-gradient(
+				#8bac84 2.8000000000000003px,
+				transparent 2.8000000000000003px
+			)
+			0 -1.4000000000000001px,
+		linear-gradient(
+				90deg,
+				#8bac84 2.8000000000000003px,
+				#2d2d31 2.8000000000000003px
+			) -1.4000000000000001px 0;
+	background-size: 70px 70px, 70px 70px, 35px 35px, 35px 35px;
+}
+
+footer {
+	position: absolute;
+	min-height: 10%;
+	bottom: 0;
+	width: 100%;
+	padding: 20px;
+	background-color: #8bac84;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-div {
+	position: relative;
+	padding: auto;
+	margin: auto;
+}
+
+.name:hover {
+	text-decoration: underline;
+	color: #298594;
+}
+.name {
+	text-decoration: none;
+	color: #298594;
+}
+
+.btn-primary {
+	color: #2d2d31;
+	background-color: #8bac84;
+	border: #2d2d31;
+}
+
+.btn-primary:hover {
+	color: #8bac84;
+	background-color: #2d2d31;
+	border: #8bac84;
 }

@@ -12,7 +12,7 @@ interface LocationState {
 }
 
 export interface CentersProps
-	extends RouteComponentProps<{}, StaticContext, LocationState> { }
+	extends RouteComponentProps<{}, StaticContext, LocationState> {}
 
 const Centers: React.FC<CentersProps> = ({ location }) => {
 	const { pincode, today } = location.state;
@@ -21,6 +21,7 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 	const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pincode}&date=${today}`;
 
 	useEffect(() => {
+		document.title = "VAXEEN - Centers";
 		loadData();
 	});
 
@@ -47,10 +48,13 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 
 	return (
 		<div>
-			<nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
-				<h2 className="navbar-brand">
-					<i>Vaxeen</i>
-				</h2>
+			<head>
+				<title>Vaxeen - Centers</title>
+			</head>
+			<nav className="navbar ">
+				<a className="logo" href="/">
+					Vaxeen
+				</a>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -79,7 +83,7 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 												<div className="title mb-2 bg-secondary text-white rounded p-2">
 													<h6 className="card-title rounded my-0">
 														{center.name}
-														<span className="badge mx-2 text-black bg-success badge-danger">
+														<span className="badge mx-2 text-black bg-success badge">
 															{center.feeType}
 														</span>
 													</h6>
@@ -110,7 +114,7 @@ const Centers: React.FC<CentersProps> = ({ location }) => {
 												)}
 												<button
 													onClick={() => onClick(center.centerId)}
-													className="btn btn-success btn-block w-100"
+													className="btn btn-primary btn-block w-100"
 												>
 													Check Sessions
 												</button>

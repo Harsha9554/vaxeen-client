@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/DetailedCenter.css";
 import { RouteComponentProps } from "react-router-dom";
 import { StaticContext } from "react-router";
@@ -9,30 +9,31 @@ interface LocationState {
 }
 
 export interface DetailedCenterProps
-	extends RouteComponentProps<{}, StaticContext, LocationState> { }
+	extends RouteComponentProps<{}, StaticContext, LocationState> {}
 
 const DetailedCenter: React.FC<DetailedCenterProps> = ({ location }) => {
 	const { center } = location.state;
 	const [modalInfo, setModalInfo] = useState<String[]>([]);
-	const [showModal, setShowModal] = useState(false)
-	const [show, setShow] = useState(false)
+	// const [showModal, setShowModal] = useState(false);
+	// const [show, setShow] = useState(false);
+
+	useEffect(() => {
+		document.title = "VAXEEN - Detailed Center";
+	}, []);
 
 	const onSessionClick = (id: string) => {
-		const session = center.sessions.find(session => session.sessionId === id)
+		const session = center.sessions.find((session) => session.sessionId === id);
 		if (session) {
-			setModalInfo(session.slots)
-			console.log(modalInfo)
+			setModalInfo(session.slots);
+			console.log(modalInfo);
 		}
-	}
-
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	};
 	return (
 		<div>
-			<nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
-				<h2 className="navbar-brand">
-					<i>Vaxeen</i>
-				</h2>
+			<nav className="navbar ">
+				<a className="logo" href="/">
+					Vaxeen
+				</a>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -47,7 +48,9 @@ const DetailedCenter: React.FC<DetailedCenterProps> = ({ location }) => {
 			</nav>
 			<div className="container w-100">
 				<div className=" align-items-center p-3 my-3 text-white bg-secondary rounded box-shadow w-100">
-					<h6 className="border-bottom text-white border-white pb-2">Vaccine Center Details</h6>
+					<h6 className="border-bottom text-white border-white pb-2">
+						Vaccine Center Details
+					</h6>
 					<div>
 						{center && (
 							<div key={center.centerId}>
@@ -81,14 +84,20 @@ const DetailedCenter: React.FC<DetailedCenterProps> = ({ location }) => {
 										<tr>
 											<th scope="row">6</th>
 											<td>Fee Type</td>
-											<td><span className="badge  text-black bg-success badge-danger">{center.feeType}</span></td>
+											<td>
+												<span className="badge  text-black bg-success badge-danger">
+													{center.feeType}
+												</span>
+											</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						)}
 						<div className="my-3 bg-secondary rounded box-sha">
-							<h6 className="border-bottom text-white border-white pb-2">Vaccine Session Details</h6>
+							<h6 className="border-bottom text-white border-white pb-2">
+								Vaccine Session Details
+							</h6>
 							<div className="card bg-light mb-2">
 								<div className="card-body">
 									<table className="table table-striped table-lg">
@@ -103,18 +112,45 @@ const DetailedCenter: React.FC<DetailedCenterProps> = ({ location }) => {
 											</tr>
 										</thead>
 										<tbody>
-											{center.sessions && center.sessions.length > 0 && center.sessions.map((session) => {
-												return (
-													<tr>
-														<td>{session.date}</td>
-														<td><button onClick={() => onSessionClick(session.sessionId)} className="btn btn-sm btn-success">Slots</button></td>
-														<td><span className="badge badge-pill bg-danger">{session.vaccine}</span></td>
-														<td><span className="badge badge-pill bg-info">{session.minAge}</span></td>
-														<td><span className="badge badge-pill bg-warning">{session.availableCapacityDose1}</span></td>
-														<td><span className="badge badge-pill bg-secondary">{session.availableCapacityDose2}</span></td>
-													</tr>
-												)
-											})}
+											{center.sessions &&
+												center.sessions.length > 0 &&
+												center.sessions.map((session) => {
+													return (
+														<tr>
+															<td>{session.date}</td>
+															<td>
+																<button
+																	onClick={() =>
+																		onSessionClick(session.sessionId)
+																	}
+																	className="btn btn-sm btn-success"
+																>
+																	Slots
+																</button>
+															</td>
+															<td>
+																<span className="badge badge-pill bg-danger">
+																	{session.vaccine}
+																</span>
+															</td>
+															<td>
+																<span className="badge badge-pill bg-info">
+																	{session.minAge}
+																</span>
+															</td>
+															<td>
+																<span className="badge badge-pill bg-warning">
+																	{session.availableCapacityDose1}
+																</span>
+															</td>
+															<td>
+																<span className="badge badge-pill bg-secondary">
+																	{session.availableCapacityDose2}
+																</span>
+															</td>
+														</tr>
+													);
+												})}
 										</tbody>
 									</table>
 								</div>
